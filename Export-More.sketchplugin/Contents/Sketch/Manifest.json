@@ -1,0 +1,21 @@
+{
+    "name" : "Export More...",
+    "identifier" : "com.sketchapp.plugin.Export-More",
+    "version" : "1.0",
+    "description" : "Adds support for exporting ICNS and animated GIF file formats.",
+    "authorEmail" : "code@nath.co",
+    "author" : "Nathan Rutzky",
+    "commands" : [{
+        "script" : "Generate.js",
+        "handler" : "GenerateGIF",
+        "shortcut" : "",
+        "name" : "Artboards to GIF",
+        "identifier" : "GenerateGIF"
+    }, {
+        "script" : "Generate.js",
+        "handler" : "GenerateICNS",
+        "shortcut" : "",
+        "name" : "Artboards to ICNS",
+        "identifier" : "GenerateICNS"
+    }]
+}
