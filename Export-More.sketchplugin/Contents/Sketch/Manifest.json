@@ -1,7 +1,7 @@
 {
     "name" : "Export More...",
     "identifier" : "com.sketchapp.plugin.Export-More",
-    "version" : "1.0",
+    "version" : "1.1",
     "description" : "Adds support for exporting ICNS and animated GIF file formats.",
     "authorEmail" : "code@nath.co",
     "author" : "Nathan Rutzky",

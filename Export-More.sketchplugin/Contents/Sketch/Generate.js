@@ -1,7 +1,7 @@
 // Plugin: Export More
 // Source: github.com/nathco/Export-More
 // Author: Nathan Rutzky
-// Update: 1.0
+// Update: 1.1
 
 function GenerateGIF(context) {
 
@@ -27,14 +27,13 @@ function GenerateGIF(context) {
         alert.setMessageText('GIF Export Options')
         alert.setInformativeText('Generate animated GIF files from a sequence of artboards. Select playback and frame delay.')
         alert.addButtonWithTitle('Continue')
-        //alert.addButtonWithTitle('Cancel')
+        alert.addButtonWithTitle('Cancel')
         alert.setAccessoryView(menuPopup)
 
     var response = alert.runModal()
     var menuItem = menuPopup.indexOfSelectedItem()
     var scriptPath = context.scriptPath
     var gifx = [scriptPath stringByDeletingLastPathComponent] + "/GIFX"
-    var gifPath = savePath()
     var tempPath = NSTemporaryDirectory()
     var string = [[NSProcessInfo processInfo] globallyUniqueString]
     var gifsetPath = [tempPath stringByAppendingPathComponent: string + @".gifset"]
@@ -55,6 +54,8 @@ function GenerateGIF(context) {
 
     if (response === NSAlertFirstButtonReturn) {
     
+        gifPath = savePath()
+        
         if (menuItem == 0) generateFile("find \"" + gifsetPath + "\" -name '*.png.gif' -execdir bash -c '\"" + gifx + "\" -l -d 0 '*.png.gif' -o \"" + gifPath + "\"' \\;")
         if (menuItem == 1) generateFile("find \"" + gifsetPath + "\" -name '*.png.gif' -execdir bash -c '\"" + gifx + "\" -l -d 10 '*.png.gif' -o \"" + gifPath + "\"' \\;")
         if (menuItem == 2) generateFile("find \"" + gifsetPath + "\" -name '*.png.gif' -execdir bash -c '\"" + gifx + "\" -l -d 20 '*.png.gif' -o \"" + gifPath + "\"' \\;")
@@ -150,12 +151,11 @@ function GenerateICNS(context) {
         alert.setMessageText('ICNS Export Options')
         alert.setInformativeText('Generate ICNS files from a sequence of artboards or automatically from a single artboard.')
         alert.addButtonWithTitle('Continue')
-        //alert.addButtonWithTitle('Cancel')
+        alert.addButtonWithTitle('Cancel')
         alert.setAccessoryView(menuPopup)
 
     var response = alert.runModal()
     var menuItem = menuPopup.indexOfSelectedItem()
-    var iconPath = savePath()
     var tempPath = NSTemporaryDirectory()
     var string = [[NSProcessInfo processInfo] globallyUniqueString]
     var iconsetPath = [tempPath stringByAppendingPathComponent: string + @".iconset"]
@@ -166,6 +166,8 @@ function GenerateICNS(context) {
 
     if (response === NSAlertFirstButtonReturn) {
     
+        iconPath = savePath()
+        
         if (menuItem == 0) {
         
             for (var i=0; i < [artboards count]; i++) {

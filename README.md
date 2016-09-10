@@ -4,7 +4,7 @@ Sketch.app plugin adding export support for Apple Icon Image ( .icns ) and Anima
 ## Installation
 1. Download and open `Export-More-master.zip`  
 2. Locate and double-click `Export-More.sketchplugin`
-3. Locate the `GIFX` file in the plugin bundle and double-click to activate    
+3. Locate the `GIFX` file in the bundle and double-click ( only if plugin fails after install )      
 
 ## GIF: Animated
 Create your content on a sequence of artboards using a `Frame 01`, `Frame 02`, `Frame 03` naming convention. Each artboard acts as an animation keyframe and will play sequentially according to the naming structure. When ready, navigate to `Plugins ▸ Export More ▸ Artboards to GIF ` and select a playback method and frame animation delay ( see options below ). The file will export to the directory of your choosing. 
@@ -44,6 +44,8 @@ The artboard naming structure, for example: `icon_32x32` and `icon_32x32@2x`, mu
 ## Release Notes  
 **Export More 1.0**   
 - Initial Release  
+**Export More 1.1**      
+- Fixed export options `Cancel` button    
 
 ## Feedback
 If you discover any issues or have questions regarding usage, please send a message to [code@nath.co](mailto:code@nath.co) or find me on GitHub [@nathco](https://github.com/nathco).
