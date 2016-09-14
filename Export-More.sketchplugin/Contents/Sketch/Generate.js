@@ -1,7 +1,7 @@
 // Plugin: Export More
 // Source: github.com/nathco/Export-More
 // Author: Nathan Rutzky
-// Update: 1.1
+// Update: 1.2
 
 function GenerateGIF(context) {
 
@@ -19,16 +19,18 @@ function GenerateGIF(context) {
         return false
     }
     
-    var menuItems = [[NSArray alloc] initWithObjects:'Play Forever - No Delay','Play Forever - 100 ms','Play Forever - 200 ms','Play Forever - 500 ms','Play Forever - 1000 ms','Play Forever - 2000 ms','Play Forever - 5000 ms','Play Once - No Delay','Play Once - 100 ms','Play Once - 200 ms','Play Once - 500 ms','Play Once - 1000 ms','Play Once - 2000 ms','Play Once - 5000 ms']
+    var menuItems = [[NSArray alloc] initWithObjects:'Frame Rate - No Delay','Frame Rate - 100 ms','Frame Rate - 200 ms','Frame Rate - 300 ms','Frame Rate - 400 ms','Frame Rate - 500 ms','Frame Rate - 600 ms','Frame Rate - 700 ms','Frame Rate - 800 ms','Frame Rate - 900 ms','Frame Rate - 1000 ms','Frame Rate - 1500 ms','Frame Rate - 2000 ms','Frame Rate - 3000 ms','Frame Rate - 4000 ms','Frame Rate - 5000 ms']
     var menuPopup = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(0,0,300,25)]
         menuPopup.addItemsWithTitles(menuItems)
         
     var alert = NSAlert.alloc().init()
         alert.setMessageText('GIF Export Options')
-        alert.setInformativeText('Generate animated GIF files from a sequence of artboards. Select playback and frame delay.')
+        alert.setInformativeText('Generate animated GIF files from a sequence of artboards. Select playback and frame rate.')
         alert.addButtonWithTitle('Continue')
         alert.addButtonWithTitle('Cancel')
         alert.setAccessoryView(menuPopup)
+        alert.setShowsSuppressionButton(true)
+        alert.suppressionButton().setTitle('Loop Animation?')
 
     var response = alert.runModal()
     var menuItem = menuPopup.indexOfSelectedItem()
@@ -54,35 +56,40 @@ function GenerateGIF(context) {
 
     if (response === NSAlertFirstButtonReturn) {
     
+        //gifLoop = [[alert suppressionButton] state] == NSOnState? '-l' : '';
+        gifLoop = alert.suppressionButton().state() == NSOnState? '-l' : '';
         gifPath = savePath()
         
-        if (menuItem == 0) generateFile("find \"" + gifsetPath + "\" -name '*.png.gif' -execdir bash -c '\"" + gifx + "\" -l -d 0 '*.png.gif' -o \"" + gifPath + "\"' \\;")
-        if (menuItem == 1) generateFile("find \"" + gifsetPath + "\" -name '*.png.gif' -execdir bash -c '\"" + gifx + "\" -l -d 10 '*.png.gif' -o \"" + gifPath + "\"' \\;")
-        if (menuItem == 2) generateFile("find \"" + gifsetPath + "\" -name '*.png.gif' -execdir bash -c '\"" + gifx + "\" -l -d 20 '*.png.gif' -o \"" + gifPath + "\"' \\;")
-        if (menuItem == 3) generateFile("find \"" + gifsetPath + "\" -name '*.png.gif' -execdir bash -c '\"" + gifx + "\" -l -d 50 '*.png.gif' -o \"" + gifPath + "\"' \\;")
-        if (menuItem == 4) generateFile("find \"" + gifsetPath + "\" -name '*.png.gif' -execdir bash -c '\"" + gifx + "\" -l -d 100 '*.png.gif' -o \"" + gifPath + "\"' \\;")
-        if (menuItem == 5) generateFile("find \"" + gifsetPath + "\" -name '*.png.gif' -execdir bash -c '\"" + gifx + "\" -l -d 200 '*.png.gif' -o \"" + gifPath + "\"' \\;")
-        if (menuItem == 6) generateFile("find \"" + gifsetPath + "\" -name '*.png.gif' -execdir bash -c '\"" + gifx + "\" -l -d 500 '*.png.gif' -o \"" + gifPath + "\"' \\;")
-        if (menuItem == 7) generateFile("find \"" + gifsetPath + "\" -name '*.png.gif' -execdir bash -c '\"" + gifx + "\" -d 0 '*.png.gif' -o \"" + gifPath + "\"' \\;")
-        if (menuItem == 8) generateFile("find \"" + gifsetPath + "\" -name '*.png.gif' -execdir bash -c '\"" + gifx + "\" -d 10 '*.png.gif' -o \"" + gifPath + "\"' \\;")
-        if (menuItem == 9) generateFile("find \"" + gifsetPath + "\" -name '*.png.gif' -execdir bash -c '\"" + gifx + "\" -d 20 '*.png.gif' -o \"" + gifPath + "\"' \\;")
-        if (menuItem == 10) generateFile("find \"" + gifsetPath + "\" -name '*.png.gif' -execdir bash -c '\"" + gifx + "\" -d 50 '*.png.gif' -o \"" + gifPath + "\"' \\;")
-        if (menuItem == 11) generateFile("find \"" + gifsetPath + "\" -name '*.png.gif' -execdir bash -c '\"" + gifx + "\" -d 100 '*.png.gif' -o \"" + gifPath + "\"' \\;")
-        if (menuItem == 12) generateFile("find \"" + gifsetPath + "\" -name '*.png.gif' -execdir bash -c '\"" + gifx + "\" -d 200 '*.png.gif' -o \"" + gifPath + "\"' \\;")
-        if (menuItem == 13) generateFile("find \"" + gifsetPath + "\" -name '*.png.gif' -execdir bash -c '\"" + gifx + "\" -d 500 '*.png.gif' -o \"" + gifPath + "\"' \\;")
+        if (menuItem == 0) generateFile(0)
+        if (menuItem == 1) generateFile(10)
+        if (menuItem == 2) generateFile(20)
+        if (menuItem == 3) generateFile(30)
+        if (menuItem == 4) generateFile(40)
+        if (menuItem == 5) generateFile(50)
+        if (menuItem == 6) generateFile(60)
+        if (menuItem == 7) generateFile(70)
+        if (menuItem == 8) generateFile(80)
+        if (menuItem == 9) generateFile(90)
+        if (menuItem == 10) generateFile(100)
+        if (menuItem == 11) generateFile(150)
+        if (menuItem == 12) generateFile(200)
+        if (menuItem == 13) generateFile(300)
+        if (menuItem == 14) generateFile(400)
+        if (menuItem == 15) generateFile(500)
         
         function generateFile(option) {
             
             var convertTask = [[NSTask alloc] init]
             var createsTask = [[NSTask alloc] init]
             var convertGIF = "find \"" + gifsetPath + "\" -name '*.png' -exec sips -s format gif -o {}.gif {} \\;"
+            var createsGIF = "find \"" + gifsetPath + "\" -name '*.png.gif' -execdir bash -c '\"" + gifx + "\" \"" + gifLoop + "\" -d \"" + option + "\" '*.png.gif' -o \"" + gifPath + "\"' \\;"
             
             [convertTask setLaunchPath:@"/bin/bash"]
             [convertTask setArguments:["-c", convertGIF]]
             [convertTask launch]
             [convertTask waitUntilExit]
             [createsTask setLaunchPath:@"/bin/bash"]
-            [createsTask setArguments:["-c", option]]
+            [createsTask setArguments:["-c", createsGIF]]
             [createsTask launch]
             [createsTask waitUntilExit]
           

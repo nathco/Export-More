@@ -7,23 +7,19 @@ Sketch.app plugin adding export support for Apple Icon Image ( .icns ) and Anima
 3. Locate the `GIFX` file in the bundle and double-click ( only if plugin fails after install )      
 
 ## GIF: Animated
-Create your content on a sequence of artboards using a `Frame 01`, `Frame 02`, `Frame 03` naming convention. Each artboard acts as an animation keyframe and will play sequentially according to the naming structure. When ready, navigate to `Plugins ▸ Export More ▸ Artboards to GIF ` and select a playback method and frame animation delay ( see options below ). The file will export to the directory of your choosing. 
+Create your content on a sequence of artboards using a `XXX 01`, `XXX 02`, `XXX 03` naming convention, where "XXX" is the artboard name. Each artboard acts as an animation keyframe and will play sequentially according to the naming structure. When ready, navigate to `Plugins ▸ Export More ▸ Artboards to GIF ` and select a playback method and frame animation rate ( see options below ). The file will export to the directory of your choosing. 
 
 **Playback Options**  
-`Play animation forever`    
-`Play animation once`  
-
-**Frame Delay Options**  
-`100 ms` `00.1 sec`  
-`200 ms` `00.2 sec`  
-`500 ms` `00.5 sec`  
-`1000 ms` `1.0 sec`  
-`2000 ms` `2.0 sec`   
-`5000 ms` `5.0 sec`    
-`No Delay`
+`Default: play animation once`    
+`Loop: play animation forever`        
+  
+**Frame Rate Options**  
+`No Delay`  
+`100ms, 200ms, 300ms, 400ms, 500ms, 600ms, 700ms, 800ms, 900ms`  
+`1000ms, 1500ms, 2000ms, 3000ms, 4000ms, 5000ms`           
 
 **Usage Notes**  
-If you notice issues with transparency and / or antialiasing, try adding a solid background color to the artboard. You can prevent individual artboards from exporting by appending `Lock` to the name. Frame delay options can be modified by editing the plugin files.  
+If you notice issues with transparency and / or antialiasing, try adding a solid background color to the artboard. You can prevent individual artboards from exporting by appending `Lock` to the name. Frame rate options can be modified by editing the plugin files.  
 
 ## ICNS: Automatically  
 Create your icon on a single `1024x1024` sized artboard. When ready, navigate to `Plugins ▸ Export More ▸ Artboards to ICNS ` and select `Automatically` from the dropdown menu. The file will export to the directory of your choosing.  
@@ -41,11 +37,18 @@ Create your icon using the **Mac App Icon** template from `File ▸ New From Tem
 **Usage Notes**  
 The artboard naming structure, for example: `icon_32x32` and `icon_32x32@2x`, must remain intact for the generator to work properly. You can prevent individual artboards from exporting by appending `Lock` to the name.
 
-## Release Notes  
+## Release Notes
+
+**Export More 1.2**      
+- Added more frame rate options  
+- Added checkbox for playback option ( loop or once )  
+- Minor code cleanup and fixes 
+
+**Export More 1.1**      
+- Fixed export options `Cancel` button  
+
 **Export More 1.0**   
 - Initial Release  
-**Export More 1.1**      
-- Fixed export options `Cancel` button    
 
 ## Feedback
 If you discover any issues or have questions regarding usage, please send a message to [code@nath.co](mailto:code@nath.co) or find me on GitHub [@nathco](https://github.com/nathco).
