@@ -56,7 +56,6 @@ function GenerateGIF(context) {
 
     if (response === NSAlertFirstButtonReturn) {
     
-        //gifLoop = [[alert suppressionButton] state] == NSOnState? '-l' : '';
         gifLoop = alert.suppressionButton().state() == NSOnState? '-l' : '';
         gifPath = savePath()
         
@@ -117,7 +116,7 @@ function GenerateGIF(context) {
             var savePanel = [NSSavePanel savePanel]
             
             [savePanel setTitle:@"Export Animated GIF"]
-            [savePanel setNameFieldLabel:@"Export To:"]
+            [savePanel setNameFieldLabel:@"Export As:"]
             [savePanel setPrompt:@"Export"]
             [savePanel setAllowedFileTypes: [NSArray arrayWithObject:@"gif"]]
             [savePanel setAllowsOtherFileTypes:false]
@@ -271,7 +270,7 @@ function GenerateICNS(context) {
             var savePanel = [NSSavePanel savePanel]
             
             [savePanel setTitle:@"Export ICNS"]
-            [savePanel setNameFieldLabel:@"Export To:"]
+            [savePanel setNameFieldLabel:@"Export As:"]
             [savePanel setPrompt:@"Export"]
             [savePanel setAllowedFileTypes: [NSArray arrayWithObject:@"icns"]]
             [savePanel setAllowsOtherFileTypes:false]

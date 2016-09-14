@@ -1,12 +1,15 @@
 # Export More
-Sketch.app plugin adding export support for Apple Icon Image ( .icns ) and Animated GIF ( .gif ) file formats. Based on my previous [Generate ICNS](http://github.com/nathco/Generate-ICNS) and [Generate GIF](http://github.com/nathco/Generate-GIF) plugins.       
+Sketch.app plugin adding export support for Apple Icon Image ( .icns ) and Animated GIF ( .gif ) file formats. Based on my previous [Generate ICNS](http://github.com/nathco/Generate-ICNS) and [Generate GIF](http://github.com/nathco/Generate-GIF) plugins.    
+
+## Preview  
+![Preview](Preview.png)    
 
 ## Installation
 1. Download and open `Export-More-master.zip`  
 2. Locate and double-click `Export-More.sketchplugin`
 3. Locate the `GIFX` file in the bundle and double-click ( only if plugin fails after install )      
 
-## GIF: Animated
+## Animated GIF
 Create your content on a sequence of artboards using a `XXX 01`, `XXX 02`, `XXX 03` naming convention, where "XXX" is the artboard name. Each artboard acts as an animation keyframe and will play sequentially according to the naming structure. When ready, navigate to `Plugins ▸ Export More ▸ Artboards to GIF ` and select a playback method and frame animation rate ( see options below ). The file will export to the directory of your choosing. 
 
 **Playback Options**  
