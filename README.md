@@ -22,7 +22,7 @@ Create your content on a sequence of artboards using a `XXX 01`, `XXX 02`, `XXX 
 `1000ms, 1500ms, 2000ms, 3000ms, 4000ms, 5000ms`           
 
 **Usage Notes**  
-If you notice issues with transparency and / or antialiasing, try adding a solid background color to the artboard. You can prevent individual artboards from exporting by appending `Lock` to the name. Frame rate options can be modified by editing the plugin files.  
+If you notice issues with transparency and / or antialiasing, try adding a solid background color to the artboard. You can prevent individual artboards from exporting by appending `Lock` to the name, or selecting only the artboards you need. Frame rate options can be modified by editing the plugin files.  
 
 ## ICNS: Automatically  
 Create your icon on a single `1024x1024` sized artboard. When ready, navigate to `Plugins ▸ Export More ▸ Artboards to ICNS ` and select `Automatically` from the dropdown menu. The file will export to the directory of your choosing.  
@@ -41,6 +41,9 @@ Create your icon using the **Mac App Icon** template from `File ▸ New From Tem
 The artboard naming structure, for example: `icon_32x32` and `icon_32x32@2x`, must remain intact for the generator to work properly. You can prevent individual artboards from exporting by appending `Lock` to the name.
 
 ## Release Notes
+
+**Export More 1.3**        
+- Added option to export GIFs from selected or all artboards     
 
 **Export More 1.2**      
 - Added more frame rate options  

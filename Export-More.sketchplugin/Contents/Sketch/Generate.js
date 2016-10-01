@@ -1,12 +1,19 @@
 // Plugin: Export More
 // Source: github.com/nathco/Export-More
 // Author: Nathan Rutzky
-// Update: 1.2
+// Update: 1.3
 
 function GenerateGIF(context) {
 
     var doc = context.document
-    var artboards = [[doc currentPage] artboards]
+    var selection = context.selection
+    var artboards
+    
+    if ([selection count] == 0) {
+        artboards = [[doc currentPage] artboards]
+    } else {
+        artboards = context.selection
+    }
     
     if ([artboards count] < 1) {
         
