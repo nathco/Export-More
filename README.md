@@ -1,5 +1,7 @@
 # Export More
-Sketch.app plugin adding export support for Apple Icon Image ( .icns ) and Animated GIF ( .gif ) file formats. Based on my previous [Generate ICNS](http://github.com/nathco/Generate-ICNS) and [Generate GIF](http://github.com/nathco/Generate-GIF) plugins.    
+Sketch.app plugin adding export support for Apple Icon Image ( .icns ) and Animated GIF ( .gif ) file formats. Based on my previous [Generate ICNS](http://github.com/nathco/Generate-ICNS) and [Generate GIF](http://github.com/nathco/Generate-GIF) plugins.  
+
+**Notice:** An issue causing exports to fail on **OS Sierra** was reported. If you’re running **El Capitan** or previous versions of Mac OS, everything should still be working correctly. Please stay tuned for an update...  
 
 ## Preview  
 ![Preview](Preview.png)    
