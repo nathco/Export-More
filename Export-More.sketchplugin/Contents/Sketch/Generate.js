@@ -87,8 +87,8 @@ function GenerateGIF(context) {
             
             var convertTask = [[NSTask alloc] init]
             var createsTask = [[NSTask alloc] init]
-            var convertGIF = "find \"" + gifsetPath + "\" -name '*.png' -exec sips -s format gif -o {}.gif {} \\;"
-            var createsGIF = "find \"" + gifsetPath + "\" -name '*.png.gif' -execdir bash -c '\"" + gifx + "\" \"" + gifLoop + "\" -d \"" + option + "\" '*.png.gif' -o \"" + gifPath + "\"' \\;"
+            var convertGIF = "find \"" + gifsetPath + "\" -name '*.png' -exec sips -s format gif --out {}.gif {} \\;"
+            var createsGIF = "find \"" + gifsetPath + "\" -name '*.png.gif' -execdir bash -c '\"" + gifx + "\" \"" + gifLoop + "\" -d \"" + option + "\" '*.png.gif' --out \"" + gifPath + "\"' \\;"
             
             [convertTask setLaunchPath:@"/bin/bash"]
             [convertTask setArguments:["-c", convertGIF]]
@@ -215,7 +215,7 @@ function GenerateICNS(context) {
         
             while (png = [enumerator nextObject]) {
                 var convertTask = [[NSTask alloc] init]
-                var convertIcon  = "sips -z" + [pngSize valueForKey:png] + pngPath + " -o " + [iconsetPath stringByAppendingPathComponent:png]
+                var convertIcon  = "sips -z" + [pngSize valueForKey:png] + pngPath + " --out " + [iconsetPath stringByAppendingPathComponent:png]
         
                 [convertTask setLaunchPath:"/bin/bash"]
                 [convertTask setArguments:["-c", convertIcon]]
@@ -245,7 +245,7 @@ function GenerateICNS(context) {
         function generateIcon(iconsetPath, iconPath) {
             
             var createTask = [[NSTask alloc] init]
-            var createIcon = "iconutil -c icns \"" + iconsetPath + "\" -o \"" + iconPath + "\""
+            var createIcon = "iconutil -c icns \"" + iconsetPath + "\" --out \"" + iconPath + "\""
             
             [createTask setLaunchPath:@"/bin/bash"]
             [createTask setArguments:["-c", createIcon]]
