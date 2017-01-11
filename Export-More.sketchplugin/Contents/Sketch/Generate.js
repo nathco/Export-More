@@ -196,7 +196,18 @@ function GenerateICNS(context) {
                 }
             }
         
-            [doc saveArtboardOrSlice:artboard toFile:pngPath]
+			var scaledArtboard = artboard.duplicate();
+	        scaledArtboard.exportOptions().removeAllExportFormats();
+	        var exportOption = scaledArtboard.exportOptions().addExportFormat();
+			
+			var scale = Math.ceil(1024/[[artboard frame] width])
+
+			[exportOption setScale:scale];
+					
+			var slice = MSExportRequest.exportRequestsFromExportableLayer(scaledArtboard)[0];
+            [doc saveArtboardOrSlice:slice toFile:pngPath];
+
+	        scaledArtboard.removeFromParent();
         
             var pngSize = [NSDictionary dictionaryWithObjectsAndKeys:
                     @" 16 16 ",     @"icon_16x16.png",
