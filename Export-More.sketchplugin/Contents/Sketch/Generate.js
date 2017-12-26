@@ -26,7 +26,7 @@ function GenerateGIF(context) {
         return false
     }
     
-    var menuItems = [[NSArray alloc] initWithObjects:'Frame Rate - No Delay','Frame Rate - 100 ms','Frame Rate - 200 ms','Frame Rate - 300 ms','Frame Rate - 400 ms','Frame Rate - 500 ms','Frame Rate - 600 ms','Frame Rate - 700 ms','Frame Rate - 800 ms','Frame Rate - 900 ms','Frame Rate - 1000 ms','Frame Rate - 1500 ms','Frame Rate - 2000 ms','Frame Rate - 3000 ms','Frame Rate - 4000 ms','Frame Rate - 5000 ms']
+    var menuItems = [NSArray arrayWithArray:['Frame Rate - No Delay','Frame Rate - 100 ms','Frame Rate - 200 ms','Frame Rate - 300 ms','Frame Rate - 400 ms','Frame Rate - 500 ms','Frame Rate - 600 ms','Frame Rate - 700 ms','Frame Rate - 800 ms','Frame Rate - 900 ms','Frame Rate - 1000 ms','Frame Rate - 1500 ms','Frame Rate - 2000 ms','Frame Rate - 3000 ms','Frame Rate - 4000 ms','Frame Rate - 5000 ms']]
     var menuPopup = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(0,0,300,25)]
         menuPopup.addItemsWithTitles(menuItems)
         
