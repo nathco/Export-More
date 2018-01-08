@@ -40,7 +40,10 @@ Create your icon using the **Mac App Icon** template from `File ▸ New From Tem
 **Usage Notes**  
 The artboard naming structure, for example: `icon_32x32` and `icon_32x32@2x`, must remain intact for the generator to work properly. You can prevent individual artboards from exporting by appending `Lock` to the name.
 
-## Release Notes
+## Release Notes  
+
+**Export More 1.5**        
+- Fixed an issue where exports failed on High Sierra  
 
 **Export More 1.4**        
 - Fixed an issue where exports failed on Sierra    
